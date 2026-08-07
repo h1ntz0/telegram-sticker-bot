@@ -1,53 +1,74 @@
-# Bot Telegram Photo to Sticker
+# telegram-sticker-bot
 
-Bot Telegram that changes photo to sticker with WebP format 512x512.
+A Telegram bot that converts any photo into a **ready-to-use sticker** with automatic resizing and transparent padding.
 
-## Features
+Built with [python-telegram-bot](https://docs.python-telegram-bot.org/), [Pillow](https://python-pillow.org/), and SQLite — outputs stickers in **WebP format, 512x512** with proportional padding, exactly as Telegram requires.
 
-- Changes photo to sticker (format WebP, size 512x512 with proportional padding)
-- SQLite database to store sticker history
-- Command `/start` to start bot
-- Command `/stats` to show your sticker count
-- Error handling that is friendly to users
+## ✨ Features
 
-## Installation
+- 🖼️ Photo → Sticker conversion (WebP, 512x512, proportional padding)
+- 🗄️ SQLite database to store sticker history
+- ▶️ `/start` — start the bot
+- 📊 `/stats` — show your sticker count
+- 🛡️ User-friendly error handling
 
-1. Install dependencies:
+## 🛠️ Tech Stack
+
+- [Python](https://www.python.org/) 3.8+
+- [python-telegram-bot](https://docs.python-telegram-bot.org/) 20.8
+- [Pillow](https://python-pillow.org/) 10.2.0
+- SQLite
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/h1ntz0/telegram-sticker-bot.git
+cd telegram-sticker-bot
+```
+
+### 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Get Bot Token from [@BotFather](https://t.me/botfather) in Telegram
+### 3. Get a bot token
 
-3. Set environment variable BOT_TOKEN:
+Talk to [@BotFather](https://t.me/botfather) in Telegram to create a bot and get its token.
+
+### 4. Set the token
+
 ```bash
 export BOT_TOKEN="your_bot_token_here"
 ```
 
-## How to Run
+### 5. Run the bot
 
 ```bash
 python bot.py
 ```
 
-## How to Use Bot
+## 📖 How to Use
 
-1. Start chat with bot and send `/start`
-2. Send photo (not as file) to bot
-3. Bot will process and send sticker
-4. Use `/stats` to see how many stickers you have
+1. Start a chat with your bot and send `/start`
+2. Send a **photo** (not as a file) to the bot
+3. The bot processes it and sends back a ready-to-use sticker
+4. Use `/stats` anytime to see how many stickers you've created
 
-## Database Structure
+## 🗄️ Database Structure
 
-Database `stickers.db` has table `stickers` with column:
-- `id`: INTEGER PRIMARY KEY AUTOINCREMENT
-- `user_id`: INTEGER
-- `chat_id`: INTEGER
-- `sticker_file_id`: TEXT
-- `created_at`: TEXT (ISO format)
+`stickers.db` contains the `stickers` table:
 
-## Requirements
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | INTEGER PRIMARY KEY AUTOINCREMENT | Row ID |
+| `user_id` | INTEGER | Telegram user ID |
+| `chat_id` | INTEGER | Chat ID |
+| `sticker_file_id` | TEXT | Sticker file identifier |
+| `created_at` | TEXT (ISO format) | Creation timestamp |
 
-- Python 3.8+
-- python-telegram-bot 20.8
-- Pillow 10.2.0
+## 📄 License
+
+This project is licensed under the MIT License.
