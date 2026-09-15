@@ -12,6 +12,10 @@ __pycache__/
 # Database (optional, recommended)
 *.db
 
+# Runtime downloads: the bot saves incoming user photos here, so this directory
+# must never be committed.
+photos/
+
 # OS / editor
 .DS_Store
 .vscode/
